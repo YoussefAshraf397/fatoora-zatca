@@ -118,6 +118,12 @@ class XmlInvoiceItemsService
                 $taxSubtotalXmlItem
         );
 
+        if ($item->tax == 0) {
+            $taxSubtotalXmlItem = str_replace('CODE_CATEGORY', 'Z', $taxSubtotalXmlItem);
+        } else {
+            $taxSubtotalXmlItem = str_replace('CODE_CATEGORY', 'S', $taxSubtotalXmlItem);
+        }
+
         $taxSubtotalXmlItem = str_replace(
             'SET_TAX_VALUE',
             (new PriceFormat)->transform($item->tax_percent),
@@ -194,6 +200,12 @@ class XmlInvoiceItemsService
     protected function getClassifiedTaxCategoryXmlContent(InvoiceItem $item, bool $new_line): string
     {
         $xml = (new GetXmlFileAction)->handle('xml_line_item_tax_category');
+
+        if ($item->tax_percent == 0) {
+            $xml = str_replace('CODE_CATEGORY', 'Z', $xml);
+        } else {
+            $xml = str_replace('CODE_CATEGORY', 'S', $xml);
+        }
 
         $xml = str_replace(
             'PERCENT_VALUE',

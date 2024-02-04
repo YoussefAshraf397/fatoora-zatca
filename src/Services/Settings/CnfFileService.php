@@ -60,7 +60,7 @@ class CnfFileService
      */
     protected function setCertificateTemplateName(): void
     {
-        $CTN = ConfigHelper::isProduction() ? 'ZATCA' : 'TSTZATCA';
+        $CTN = ConfigHelper::isProduction() ? 'PREZATCA' : 'PREZATCA';
 
         $this->certificateTemplateName = "{$CTN}-Code-Signing";
     }

@@ -1,6 +1,8 @@
             <cac:ClassifiedTaxCategory>
-                <cbc:ID>S</cbc:ID>
+                <cbc:ID>CODE_CATEGORY</cbc:ID>
                 <cbc:Percent>PERCENT_VALUE</cbc:Percent>
+                <cbc:TaxExemptionReasonCode>VATEX-SA-EDU </cbc:TaxExemptionReasonCode>
+                <cbc:TaxExemptionReason>Private education to citizen</cbc:TaxExemptionReason>
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
