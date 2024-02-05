@@ -4,8 +4,7 @@
             <cac:TaxCategory>
                 <cbc:ID schemeAgencyID="6" schemeID="UN/ECE 5305">CODE_CATEGORY</cbc:ID>
                 <cbc:Percent>SET_TAX_VALUE</cbc:Percent>
-                <cbc:TaxExemptionReasonCode>VATEX-SA-EDU </cbc:TaxExemptionReasonCode>
-                <cbc:TaxExemptionReason>Private education to citizen</cbc:TaxExemptionReason>
+                  REASON_TAGS
                 <cac:TaxScheme>
                     <cbc:ID schemeAgencyID="6" schemeID="UN/ECE 5153">VAT</cbc:ID>
                 </cac:TaxScheme>

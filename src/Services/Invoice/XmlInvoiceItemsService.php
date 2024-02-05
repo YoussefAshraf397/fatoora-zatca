@@ -118,10 +118,16 @@ class XmlInvoiceItemsService
                 $taxSubtotalXmlItem
         );
 
+        $reasonTags = "<cbc:TaxExemptionReasonCode>VATEX-SA-EDU </cbc:TaxExemptionReasonCode>
+                <cbc:TaxExemptionReason>Private education to citizen</cbc:TaxExemptionReason>";
+
         if ($item->tax == 0) {
             $taxSubtotalXmlItem = str_replace('CODE_CATEGORY', 'Z', $taxSubtotalXmlItem);
+            $taxSubtotalXmlItem = str_replace('REASON_TAGS', $reasonTags, $taxSubtotalXmlItem);
         } else {
             $taxSubtotalXmlItem = str_replace('CODE_CATEGORY', 'S', $taxSubtotalXmlItem);
+            $taxSubtotalXmlItem = str_replace('REASON_TAGS', '', $taxSubtotalXmlItem);
+
         }
 
         $taxSubtotalXmlItem = str_replace(
@@ -200,11 +206,15 @@ class XmlInvoiceItemsService
     protected function getClassifiedTaxCategoryXmlContent(InvoiceItem $item, bool $new_line): string
     {
         $xml = (new GetXmlFileAction)->handle('xml_line_item_tax_category');
+        $reasonTags = "<cbc:TaxExemptionReasonCode>VATEX-SA-EDU </cbc:TaxExemptionReasonCode>
+                <cbc:TaxExemptionReason>Private education to citizen</cbc:TaxExemptionReason>";
 
         if ($item->tax_percent == 0) {
             $xml = str_replace('CODE_CATEGORY', 'Z', $xml);
+            $xml = str_replace('REASON_TAGS', $reasonTags, $xml);
         } else {
             $xml = str_replace('CODE_CATEGORY', 'S', $xml);
+            $xml = str_replace('REASON_TAGS', '', $xml);
         }
 
         $xml = str_replace(
